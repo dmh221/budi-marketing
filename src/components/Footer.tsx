@@ -48,7 +48,7 @@ export default function Footer() {
             <img
               src="/assets/logo_budi-lime_icon_transparent.svg"
               alt="Budi"
-              className="h-16"
+              className="h-40"
             />
           </div>
         </div>

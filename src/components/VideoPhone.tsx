@@ -37,20 +37,15 @@ export default function VideoPhone({ videoSrc, alt = "App demo" }: VideoPhonePro
 
   return (
     <div className="relative w-full max-w-sm mx-auto">
-      {/* iPhone Frame */}
-      <div className="relative">
-        {/* Phone outer shell */}
-        <div className="relative aspect-[9/19.5] bg-black rounded-[3rem] p-3 shadow-2xl">
-          {/* Screen bezel */}
-          <div className="relative h-full bg-white rounded-[2.5rem] overflow-hidden">
-            {/* Notch */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-7 bg-black rounded-b-3xl z-10" />
-
-            {/* Video Content */}
+      {/* iPhone 17 Frame - Using Exact Figma Asset */}
+      <div className="relative aspect-[393/852]">
+        {/* Video Content - positioned to fit within the screen area */}
+        <div className="absolute inset-0" style={{ padding: '12px' }}>
+          <div className="relative h-full" style={{ paddingTop: '35px', paddingBottom: '8px' }}>
             <video
               ref={videoRef}
               src={videoSrc}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-[40px]"
               loop
               muted
               playsInline
@@ -58,6 +53,14 @@ export default function VideoPhone({ videoSrc, alt = "App demo" }: VideoPhonePro
             />
           </div>
         </div>
+
+        {/* Figma iPhone 17 Frame Overlay */}
+        <img
+          src="/assets/iPhone 17.png"
+          alt=""
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          style={{ zIndex: 10 }}
+        />
       </div>
     </div>
   );

@@ -188,14 +188,12 @@ export default function RecipeImportAnimation({
 
   return (
     <div className={`relative w-full max-w-sm mx-auto ${className}`}>
-      {/* Phone Frame */}
-      <div className="relative bg-black rounded-[3rem] p-3 shadow-2xl transform scale-90 origin-center">
-        {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-7 bg-black rounded-b-3xl z-10" />
-
-        {/* Screen */}
-        <div className="relative bg-background rounded-[2.5rem] overflow-hidden aspect-[9/19.5]">
-          <AnimatePresence mode="wait">
+      {/* iPhone 17 Frame - Using Exact Figma Asset */}
+      <div className="relative aspect-[393/852] transform scale-90 origin-center">
+        {/* Screen Content - positioned to fit within the frame */}
+        <div className="absolute inset-0" style={{ padding: '12px' }}>
+          <div className="relative h-full bg-background rounded-[40px] overflow-hidden" style={{ paddingTop: '35px', paddingBottom: '8px' }}>
+            <AnimatePresence mode="wait">
             {(currentState === 'url-empty' || currentState === 'url-pasting' || currentState === 'url-filled') && (
               <motion.div
                 key="url"
@@ -274,7 +272,16 @@ export default function RecipeImportAnimation({
               </motion.div>
             )}
           </AnimatePresence>
+          </div>
         </div>
+
+        {/* Figma iPhone 17 Frame Overlay */}
+        <img
+          src="/assets/iPhone 17.png"
+          alt=""
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          style={{ zIndex: 10 }}
+        />
       </div>
     </div>
   );
