@@ -9,5 +9,5 @@ Create folders, search across recipes or by ingredients, and see photos from eac
 
   const visual = <VideoPhone videoSrc="/videos/recipe-book.mp4" alt="Recipe book demo" />;
 
-  return <FeatureSection heading={heading} body={body} visual={visual} layout="text-left" />;
+  return <FeatureSection heading={heading} body={body} visual={visual} layout="text-right" />;
 }

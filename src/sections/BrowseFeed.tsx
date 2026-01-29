@@ -9,5 +9,5 @@ Share your recipes with friends. Save your friends' recipes and customize them f
 
   const visual = <VideoPhone videoSrc="/videos/browse-feed.mp4" alt="Browse feed demo" />;
 
-  return <FeatureSection heading={heading} body={body} visual={visual} layout="text-right" />;
+  return <FeatureSection heading={heading} body={body} visual={visual} layout="text-left" />;
 }
