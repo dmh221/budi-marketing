@@ -20,7 +20,30 @@ export default function Hero() {
   const orbOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.5, 0]);
 
   return (
-    <section ref={sectionRef} className="relative pt-36 pb-20 px-6 bg-gradient-to-b from-white via-gray-50/40 to-white overflow-hidden">
+    <section ref={sectionRef} className="relative pt-40 md:pt-44 lg:pt-48 pb-28 md:pb-32 lg:pb-36 px-6 bg-gradient-to-b from-white via-gray-50/40 to-white overflow-hidden">
+      {/* Animated gradient background with slow drift */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white via-gray-50/40 to-white"
+        style={{
+          backgroundSize: '140% 140%',
+          backgroundPosition: 'center center'
+        }}
+        animate={{
+          backgroundPosition: [
+            'center center',
+            'center calc(center + 3%)',
+            'calc(center + 2%) calc(center - 2%)',
+            'calc(center - 2%) calc(center + 2%)',
+            'center center'
+          ]
+        }}
+        transition={{
+          duration: shouldReduceMotion ? 0 : 22,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
       {/* Liquid glass background effect */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
@@ -147,9 +170,17 @@ export default function Hero() {
         />
       </motion.div>
 
+      {/* Radial depth gradient behind text */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.15) 35%, rgba(255,255,255,0) 70%)'
+        }}
+      />
+
       {/* Text content */}
       <motion.div
-        className="relative max-w-4xl mx-auto text-center"
+        className="relative mx-auto text-center"
         style={{
           opacity: shouldReduceMotion ? 1 : contentOpacity,
           scale: shouldReduceMotion ? 1 : contentScale,
@@ -157,12 +188,20 @@ export default function Hero() {
           transform: 'translateZ(0)'
         }}
       >
-        {/* Main Headline with staggered word animation */}
+        {/* Main Headline with refined animation */}
         <motion.h1
-          className="text-2xl font-normal text-black mb-3 leading-tight"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl lg:text-6xl font-semibold text-black mb-5 mx-auto"
+          style={{
+            maxWidth: '820px',
+            letterSpacing: '-0.02em',
+            lineHeight: '1.08'
+          }}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 0.58,
+            ease: "easeOut"
+          }}
         >
           {shouldReduceMotion ? (
             "Cooking has become cognitively expensive."
@@ -171,7 +210,7 @@ export default function Hero() {
               {"Cooking has become cognitively expensive.".split(" ").map((word, i) => (
                 <motion.span
                   key={i}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     duration: 0.5,
@@ -189,18 +228,31 @@ export default function Hero() {
 
         {/* Subheadline */}
         <motion.p
-          className="text-base md:text-lg text-black"
+          className="text-base md:text-lg font-normal mx-auto"
+          style={{
+            maxWidth: '640px',
+            color: 'rgba(0, 0, 0, 0.87)'
+          }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 0.6,
-            delay: shouldReduceMotion ? 0 : 0.6,
-            ease: [0.22, 1, 0.36, 1] as const
+            duration: shouldReduceMotion ? 0 : 0.6,
+            delay: shouldReduceMotion ? 0 : 0.1,
+            ease: "easeOut"
           }}
         >
           Budi provides the infrastructure to make it easy.
         </motion.p>
       </motion.div>
+
+      {/* Bottom fade into next section */}
+      <div
+        className="absolute bottom-0 left-0 right-0 pointer-events-none"
+        style={{
+          height: '120px',
+          background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 80%, rgba(255,255,255,1) 100%)'
+        }}
+      />
     </section>
   );
 }

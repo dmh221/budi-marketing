@@ -90,7 +90,7 @@ export default function FeatureSection({
           whileInView="visible"
           viewport={{ once: true, margin: "-100px", amount: 0.3 }}
         >
-          <h2 className="text-2xl md:text-3xl font-normal text-black uppercase tracking-tight leading-tight">
+          <h2 className="text-2xl md:text-3xl font-medium text-black uppercase tracking-tight leading-tight">
             {heading}
           </h2>
           <p className="text-base md:text-lg text-secondary leading-relaxed whitespace-pre-line">
