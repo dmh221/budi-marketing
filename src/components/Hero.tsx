@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section className="relative pt-36 pb-36 px-6 bg-gradient-to-b from-white via-gray-50/40 to-white overflow-hidden">
+    <section className="relative pt-36 pb-20 px-6 bg-gradient-to-b from-white via-gray-50/40 to-white overflow-hidden">
       {/* Liquid glass background effect */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Orb 1 - Top left corner */}
@@ -139,7 +139,7 @@ export default function Hero() {
         </h1>
 
         {/* Subheadline */}
-        <p className="text-lg md:text-xl text-gray-600 font-medium">
+        <p className="text-base md:text-lg text-black">
           Budi provides the infrastructure to make it easy.
         </p>
       </motion.div>
