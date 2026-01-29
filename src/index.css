@@ -1,0 +1,605 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-budi-lime-real: 175 191 65; /* #AFBF41 - Original for monochrome hovers */
+  --color-budi-lime: 175 191 65; /* #AFBF41 */
+  --color-budi-lime-light: 228 235 187; /* #E4EBBB */
+  --color-budi-lime-dark: 140 153 51; /* #8C9933 */
+  --color-budi-orange: 232 132 56; /* #E88438 */
+  --color-budi-orange-dark: 196 92 15; /* #C45C0F */
+  --color-budi-dark-green: 30 57 42; /* #1E392A */
+  --color-budi-pink: 247 61 122; /* #F73D7A */
+  --color-budi-pink-dark: 217 54 104; /* #D93668 */
+  --color-budi-gray-dark: 135 134 133; /* #878685 */
+  --color-budi-red: 199 16 16; /* #C71010 - Destructive actions */
+}
+
+.dark {
+  --color-background: 23 21 19; /* #171513 */
+  --color-card: 39 37 35; /* #272523 - Neutral dark gray */
+  --color-text-primary: 250 248 241; /* #FAF8F1 */
+  --color-text-secondary: 209 201 187; /* #D1C9BB */
+  --color-border: 255 255 255; /* white */
+  --color-input-bg: 31 29 27; /* #1F1D1B - Warm dark gray */
+}
+
+.light {
+  --color-background: 250 248 241; /* #FAF8F1 */
+  --color-card: 243 242 224; /* #F3F2E0 */
+  --color-text-primary: 0 0 0; /* #000000 */
+  --color-text-secondary: 117 117 117; /* #757575 */
+  --color-border: 0 0 0; /* black */
+  --color-input-bg: 255 255 255; /* white */
+}
+
+/**
+ * ════════════════════════════════════════════════════════════════════════════
+ * MONOCHROME COLOR SYSTEM - ARCHITECTURAL GUIDELINES
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * PURPOSE:
+ *   Provides accessible, consistent grayscale theming for the entire app
+ *   Uses CSS custom properties (--mono-*) for centralized color management
+ *
+ * ════════════════════════════════════════════════════════════════════════════
+ * THE GOLDEN RULE - READ THIS FIRST!
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * ALWAYS pair mono-* classes WITH base Tailwind classes - NEVER replace them!
+ *
+ * ✅ CORRECT (works in all modes):
+ *    <div className="bg-budi-lime text-white mono-save-button" />
+ *    <div className="bg-budi-lime-dark/50 mono-rec-overlay" />
+ *
+ * ❌ WRONG (breaks in standard light/dark modes):
+ *    <div className="mono-save-button" />
+ *    <div className="mono-rec-overlay" />
+ *
+ * WHY: Standard modes (light/dark) must work by default. Monochrome is purely
+ *      ADDITIVE - it overrides colors via CSS when .monochrome class is present.
+ *      If you only use mono-* classes, standard modes have no fallback styling.
+ *
+ * ════════════════════════════════════════════════════════════════════════════
+ * VARIABLE NAMING CONVENTION
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * Pattern: --mono-{element}-{variant}
+ * Examples: --mono-nav-inactive, --mono-button-hover, --mono-overlay-rgb
+ *
+ * Use semantic, descriptive names that indicate PURPOSE, not appearance
+ * Good: --mono-feed-author (describes what it styles)
+ * Bad:  --mono-light-gray (describes appearance, not purpose)
+ *
+ * ════════════════════════════════════════════════════════════════════════════
+ * COLOR FORMAT
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * All variables use RGB triplet format for Tailwind compatibility
+ * Format: R G B (e.g., 162 160 155)
+ *
+ * Usage in CSS:
+ *   rgb(var(--mono-variable-name))           // Solid color
+ *   rgba(var(--mono-variable-name), 0.5)    // With opacity
+ *
+ * ════════════════════════════════════════════════════════════════════════════
+ * ADDING NEW MONOCHROME OVERRIDES - STEP-BY-STEP CHECKLIST
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * Step 1: Define CSS Variable(s)
+ *   └─ Add to .monochrome.light {} (line ~87) and/or .monochrome.dark {} (line ~116)
+ *   └─ Use semantic naming: --mono-{element}-{state}
+ *
+ * Step 2: Create CSS Rule
+ *   └─ Add selector under "Monochrome Overrides" section (line ~150+)
+ *   └─ Pattern: .monochrome .mono-{element} { property: rgb(var(--mono-variable)); }
+ *
+ * Step 3: Add Class to Component
+ *   └─ IMPORTANT: Add mono-* class ALONGSIDE existing Tailwind classes
+ *   └─ Example: className="bg-budi-lime text-white mono-save-button"
+ *
+ * Step 4: Test in All 4 Modes
+ *   └─ Light mode (standard)
+ *   └─ Dark mode (standard)
+ *   └─ Monochrome Light
+ *   └─ Monochrome Dark
+ *   └─ Verify styling works correctly in each mode
+ *
+ * ════════════════════════════════════════════════════════════════════════════
+ * EXAMPLE: Adding a Login Button Override
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * 1. Define variables:
+ *    .monochrome.light {
+ *      --mono-login-button-bg: 199 196 187;
+ *      --mono-login-button-hover: 175 191 65;
+ *    }
+ *
+ * 2. Create CSS rules:
+ *    .monochrome.light .mono-login-button {
+ *      background-color: rgb(var(--mono-login-button-bg));
+ *    }
+ *    .monochrome.light .mono-login-button:hover {
+ *      background-color: rgb(var(--mono-login-button-hover));
+ *    }
+ *
+ * 3. Add to component (HomePage.tsx):
+ *    <button className="bg-card text-budi-lime mono-login-button">
+ *      Log In
+ *    </button>
+ *
+ * ════════════════════════════════════════════════════════════════════════════
+ * TROUBLESHOOTING
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * Problem: Element loses styling in standard light/dark modes
+ * Solution: Ensure base Tailwind classes (bg-*, text-*, etc.) are present
+ *           The mono-* class should be ADDED to existing classes, not replace them
+ *
+ * Problem: Monochrome mode not applying custom styles
+ * Solution: 1. Check CSS variable is defined in correct .monochrome.{theme} block
+ *           2. Verify CSS rule uses .monochrome .mono-{class} selector
+ *           3. Confirm mono-* class is added to component's className
+ *
+ * Problem: Colors look wrong in monochrome mode
+ * Solution: Check RGB values in CSS variables - ensure they match design specs
+ *
+ * ════════════════════════════════════════════════════════════════════════════
+ */
+
+/* Monochrome Image Filters */
+.monochrome img:not(.mono-logo-exclude),
+.monochrome [style*="background-image"]:not(.mono-rec-overlay-parent) {
+  filter: grayscale(1) sepia(25%) contrast(1.0) brightness(0.92) saturate(0.85);
+}
+
+/* Apply filter directly to the image inside rec card container */
+.monochrome .mono-rec-card-container .mono-rec-overlay-parent {
+  filter: grayscale(1) sepia(25%) contrast(1.0) brightness(0.92) saturate(0.85);
+}
+
+.monochrome.light {
+  /* User-provided colors for monochrome light mode */
+  --color-budi-lime: 81 79 72;         /* #514F48 */
+  --color-text-secondary: 99 96 91;    /* #63605B - Warmed up for harmony */
+  --color-budi-lime-dark: 50 48 46;    /* #32302E */
+  --color-budi-pink: 75 72 69;         /* #4B4845 */
+  --color-budi-pink-dark: 65 63 58;    /* #413F3A (Derived) */
+  --color-budi-orange: 155 152 144;    /* #9B9890 */
+  --color-budi-orange-dark: 50 48 46;  /* #32302E */
+  --color-budi-dark-green: 50 48 46;   /* #32302E */
+
+  /* Semantic monochrome color variables for light mode */
+  --mono-nav-inactive: 167 163 154;    /* #A7A39A - Bottom nav inactive state */
+  --mono-timestamp: 199 196 187;       /* #C7C4BB - Post timestamps */
+  --mono-save-button-bg: 199 196 187;  /* #C7C4BB - Creation page save buttons */
+  --mono-save-button-text: 255 255 255; /* #FFFFFF - Button text */
+  --mono-feed-author: 99 96 91;        /* #63605B - Feed author names */
+  --mono-feed-timestamp: 199 196 187;  /* #C7C4BB - Feed timestamps */
+  --mono-rec-overlay: 50 48 46;        /* #32302E - User rec card overlay for light mode */
+  --mono-calendar-high: 49 48 44;      /* #31302C - Calendar high activity */
+  --mono-calendar-medium: 41 40 37;    /* #292825 - Calendar medium activity */
+  --mono-login-button-bg: 224 222 215; /* #E0DED7 - Login button base color (previous hover) */
+  --mono-login-button-hover: 199 196 187; /* #C7C4BB - Login button hover */
+
+  /* === OVERLAY SYSTEM === */
+  --overlay-rec-rgb: 121, 113, 100;    /* #797164 - Rec card overlay (matches calendar color) */
+  --overlay-rec-opacity: 0.5;          /* 50% opacity */
+  --overlay-regular-rgb: 0, 0, 0;      /* Black - Regular overlays */
+  --overlay-regular-opacity: 0.5;      /* 50% opacity */
+}
+
+.monochrome.dark {
+  /* User-provided colors for monochrome dark mode */
+  --color-text-primary: 250 248 241;   /* #FAF8F1 */
+  --color-budi-lime: 183 178 170;      /* #B7B2AA */
+  --color-budi-lime-dark: 226 220 212; /* #E2DCD4 (Re-used from pink) */
+  --color-budi-pink: 226 220 212;      /* #E2DCD4 */
+  --color-budi-pink-dark: 183 176 166; /* #B7B0A6 (Re-used from orange) */
+  --color-budi-orange: 183 176 166;    /* #B7B0A6 */
+  --color-budi-orange-dark: 169 161 151; /* #A9A197 (Derived) */
+  --color-budi-dark-green: 226 220 212; /* #E2DCD4 */
+  --color-text-secondary: 221 219 213; /* #DDDBD5 */
+
+  /* Semantic monochrome color variables for dark mode */
+  --mono-heading-primary: 183 178 170; /* #B7B2AA - Main page titles (budi-lime) */
+  --mono-stat-label: 250 248 241;      /* #FAF8F1 - Stat item labels */
+  --mono-chart-title: 250 248 241;     /* #FAF8F1 - Activity chart title */
+  --mono-spotlight-header: 250 248 241; /* #FAF8F1 - Spotlight header */
+  --mono-form-label: 250 248 241;      /* #FAF8F1 - Form labels */
+  --mono-feed-author: 206 204 198;     /* #CEC8C6 - Feed author names & captions (midpoint between #A2A09B and #FAF8F1) */
+  --mono-feed-title: 183 178 170;      /* #B7B2AA - Feed post titles (budi-lime) */
+  --mono-rec-overlay: 82 80 78;        /* #52504E - User rec card overlay base color */
+  --mono-toggle-bg: 81 79 72;          /* #514F48 - Toggle switch background */
+  --mono-tab-bg: 47 45 43;             /* #2F2D2B - Tab container background */
+  --mono-tab-active-bg: 162 160 155;   /* #A2A09B - Active tab background */
+  --mono-tab-active-text: 250 248 241; /* #FAF8F1 - Active tab text */
+  --mono-tab-inactive-text: 250 248 241; /* #FAF8F1 - Inactive tab text */
+  --mono-login-button-bg: 47 45 44;    /* #2F2D2C - Login button base color (previous hover) */
+  --mono-login-button-hover: 35 33 32; /* #232120 - Login button hover */
+  --mono-pill-dislike-bg: 79 77 74;    /* #4F4D4A - Dislike pill background */
+  --mono-pill-dislike-text: 23 21 19;  /* #171513 - Dislike pill text */
+  --mono-pill-dislike-border: 79 77 74; /* #4F4D4A - Dislike pill border */
+  --mono-icon-dislike: 79 77 74;       /* #4F4D4A - Thumbs down icon filled state */
+
+  /* New variables for targeted refinements */
+  --mono-notification-active: 226 220 212;  /* #E2DCD4 - Active notification bell (bright cream) */
+  --mono-stat-label: 206 204 198;           /* #CEC8C6 - Follower/following labels (brighter warm gray) */
+  --mono-calendar-high: 149 143 135;        /* #958F87 - Calendar high activity (lower contrast) */
+  --mono-calendar-medium: 129 125 119;      /* #817D77 - Calendar medium activity */
+  --mono-calendar-low: 109 106 102;         /* #6D6A66 - Calendar low activity */
+
+  /* === OVERLAY SYSTEM === */
+  --overlay-rec-rgb: 82, 80, 78;       /* #52504E - Rec card overlay */
+  --overlay-rec-opacity: 0.3;          /* 30% opacity */
+  --overlay-regular-rgb: 0, 0, 0;      /* Black - Regular overlays */
+  --overlay-regular-opacity: 0.3;      /* 30% opacity */
+}
+
+/* Monochrome Activity/Calendar Color Overrides */
+.monochrome.dark .bg-budi-lime,
+.monochrome.dark .bg-budi-lime-dark,
+.monochrome.dark .bg-\[\#737F1A\],
+.monochrome.dark .bg-\[\#4F5810\] {
+  color: rgb(var(--color-background)) !important;
+}
+.monochrome.dark .bg-\[\#737F1A\] {
+  background-color: rgb(var(--color-budi-orange)) !important;
+}
+.monochrome.dark .bg-\[\#4F5810\] {
+  background-color: rgb(var(--color-text-secondary)) !important;
+}
+.monochrome.light .bg-\[\#737F1A\] {
+  background-color: rgb(var(--mono-calendar-high)) !important;
+}
+.monochrome.light .bg-\[\#4F5810\] {
+  background-color: rgb(var(--mono-calendar-medium)) !important;
+}
+
+/* Monochrome Dark Mode Specific Overrides */
+.monochrome.dark .mono-heading {
+  color: rgb(var(--mono-heading-primary));
+}
+.monochrome.dark .mono-stat-label {
+  color: rgb(var(--mono-stat-label));
+}
+.monochrome.dark .mono-form-label {
+  color: rgb(var(--mono-form-label));
+}
+.monochrome.dark .mono-notification-active {
+  color: rgb(var(--mono-notification-active)) !important;
+}
+.monochrome.dark .mono-stat-label {
+  color: rgb(var(--mono-stat-label)) !important;
+}
+.monochrome .mono-rec-overlay {
+  background-color: rgba(var(--overlay-rec-rgb), var(--overlay-rec-opacity)) !important;
+  transition: background-color 250ms ease-in-out;
+}
+
+/* On hover, show lime overlay in true color (not grayscale) */
+.monochrome .group:hover .mono-rec-overlay {
+  background-color: rgba(var(--color-budi-lime-real), 0.4) !important;
+}
+
+/* Feed Page (PostCard) color adjustments */
+.monochrome.dark .mono-feed-author {
+  color: rgb(var(--mono-feed-author));
+}
+.monochrome.dark .mono-feed-title {
+  color: rgb(var(--mono-feed-title));
+}
+.monochrome.light .mono-feed-author {
+  color: rgb(var(--mono-feed-author));
+}
+.monochrome .mono-feed-title-hover:hover {
+  color: rgb(var(--color-budi-lime-real));
+}
+.monochrome.light .mono-timestamp {
+  color: rgb(var(--mono-timestamp));
+}
+
+/* Creation Pages: Save Button Override */
+.monochrome.light .mono-save-button {
+  background-color: rgb(var(--mono-save-button-bg));
+  color: rgb(var(--mono-save-button-text));
+}
+
+/* Tab/Toggle Controls */
+.monochrome.dark .mono-tab-container {
+  background-color: rgb(var(--mono-tab-bg));
+}
+.monochrome.dark .mono-tab-active {
+  background-color: rgb(var(--mono-tab-active-bg));
+  color: rgb(var(--mono-tab-active-text));
+}
+.monochrome.dark .mono-tab-inactive {
+  color: rgb(var(--mono-tab-inactive-text));
+}
+.monochrome .mono-tab-hover:hover {
+  color: rgb(var(--color-budi-lime-real));
+}
+
+/* Settings Page: Toggle Switch */
+.monochrome.dark .mono-toggle-bg {
+  background-color: rgb(var(--mono-toggle-bg));
+}
+
+/* Bottom Navigation Bar */
+.monochrome.light .mono-nav-inactive {
+  color: rgb(var(--mono-nav-inactive));
+}
+.monochrome .mono-nav-hover:hover {
+  color: rgb(var(--color-budi-lime-real));
+}
+.monochrome .mono-nav-active {
+  color: rgb(var(--color-text-primary));
+}
+.monochrome.dark .mono-nav-inactive {
+  opacity: 0.5;
+}
+
+/* Home Page: Login Button */
+.monochrome .mono-login-button {
+  background-color: rgb(var(--mono-login-button-bg));
+}
+.monochrome .mono-login-button:hover {
+  background-color: rgb(var(--mono-login-button-hover));
+}
+
+/* Dislike Pills: Custom override for dark monochrome only */
+.monochrome.dark .mono-pill-dislike {
+  background-color: rgb(var(--mono-pill-dislike-bg)) !important;
+  color: rgb(var(--mono-pill-dislike-text)) !important;
+  border-color: rgb(var(--mono-pill-dislike-border)) !important;
+}
+
+/* Thumbs Down Icon: Custom override for dark monochrome only */
+.monochrome.dark .mono-icon-dislike {
+  color: rgb(var(--mono-icon-dislike)) !important;
+}
+
+/* Monochrome Hover & Focus Overrides */
+.monochrome .group:hover .group-hover\:text-budi-lime,
+.monochrome .hover\:text-budi-lime:hover,
+.monochrome .group:hover .group-hover\:text-budi-lime-dark,
+.monochrome .hover\:text-budi-lime-dark:hover,
+.monochrome .hover\:text-budi-pink:hover,
+.monochrome .hover\:text-budi-navy:hover {
+  color: rgb(var(--color-budi-lime-real));
+}
+.monochrome .focus\:ring-budi-lime:focus,
+.monochrome .focus-visible\:ring-budi-lime:focus-visible,
+.monochrome .focus\:ring-budi-pink:focus {
+  --tw-ring-color: rgb(var(--color-budi-lime-real));
+}
+.monochrome .focus\:border-budi-lime:focus,
+.monochrome .focus-within\:border-budi-lime:focus-within {
+  border-color: rgb(var(--color-budi-lime-real));
+}
+.monochrome .hover\:bg-budi-lime\/5:hover { background-color: rgba(var(--color-budi-lime-real), 0.05); }
+.monochrome .hover\:bg-budi-lime\/10:hover { background-color: rgba(var(--color-budi-lime-real), 0.1); }
+.monochrome .hover\:bg-budi-lime\/20:hover { background-color: rgba(var(--color-budi-lime-real), 0.2); }
+.monochrome .hover\:bg-budi-lime\/30:hover { background-color: rgba(var(--color-budi-lime-real), 0.3); }
+.monochrome .hover\:bg-budi-pink\/10:hover { background-color: rgba(var(--color-budi-lime-real), 0.1); }
+.monochrome .hover\:border-budi-lime\/40:hover,
+.monochrome .hover\:border-budi-lime:hover {
+  border-color: rgb(var(--color-budi-lime-real));
+}
+
+
+/* Selection styles */
+.light ::selection {
+  background-color: rgb(var(--color-budi-lime-light));
+  color: rgb(var(--color-text-primary));
+}
+.light ::-moz-selection {
+  background-color: rgb(var(--color-budi-lime-light));
+  color: rgb(var(--color-text-primary));
+}
+
+.dark ::selection {
+  background-color: rgb(var(--color-budi-lime));
+  color: rgb(var(--color-budi-dark-green));
+}
+.dark ::-moz-selection {
+  background-color: rgb(var(--color-budi-lime));
+  color: rgb(var(--color-budi-dark-green));
+}
+
+/* Autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: rgb(var(--color-text-secondary)) !important;
+    box-shadow: 0 0 0 30px rgb(var(--color-background)) inset !important;
+    -webkit-box-shadow: 0 0 0 30px rgb(var(--color-background)) inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Reset iOS Safari default input styling */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[type="tel"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Reset border-radius for inputs WITHOUT rounded classes (preserves OTP boxes) */
+input[type="text"]:not([class*="rounded"]),
+input[type="email"]:not([class*="rounded"]),
+input[type="url"]:not([class*="rounded"]),
+input[type="number"]:not([class*="rounded"]),
+input[type="tel"]:not([class*="rounded"]),
+textarea:not([class*="rounded"]) {
+  border-radius: 0;
+}
+
+.prose-styles[contenteditable=true]:empty:before {
+  content: attr(data-placeholder);
+  color: rgb(var(--color-text-secondary));
+  pointer-events: none;
+  cursor: text;
+}
+
+/* Shared Note Editor Styles */
+.prose-styles b, .prose-styles strong { color: var(--color-text-primary); }
+.prose-styles i, .prose-styles em { color: var(--color-text-primary); font-style: italic; }
+.prose-styles ul { list-style-type: disc; list-style-position: outside; padding-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem; }
+.prose-styles ol {
+  list-style-type: none;
+  counter-reset: item-counter;
+  padding-left: 1.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose-styles ol > li {
+  position: relative;
+  counter-increment: item-counter;
+  padding-left: 0.25rem;
+}
+.prose-styles ol > li::before {
+  content: counter(item-counter) ".";
+  position: absolute;
+  left: -1.75rem;
+  width: 1.5rem;
+  text-align: right;
+  color: inherit;
+  font-variant-numeric: tabular-nums;
+}
+.prose-styles li { margin-bottom: 0.25rem; }
+.prose-styles .budi-link {
+  color: rgb(var(--color-budi-lime));
+  background-color: rgba(var(--color-budi-lime), 0.1);
+  padding: 2px 4px;
+  border-radius: 4px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+.prose-styles .budi-link:hover {
+  background-color: rgba(var(--color-budi-lime), 0.2);
+}
+.prose-styles .postcard-container {
+  position: relative;
+  display: block;
+  margin: 1rem 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(var(--color-border), 0.1);
+}
+.prose-styles .postcard-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: block;
+  object-fit: cover;
+}
+.prose-styles[contenteditable=true] .postcard-container {
+  display: inline-block; /* Fix for layout within contenteditable */
+  width: 100%;
+  user-select: all;
+  border-radius: 0.75rem; /* Match post card style */
+  overflow: hidden; /* Ensure corners are clipped */
+}
+.prose-styles[contenteditable=true] .carousel-container {
+  /* display: block was here, removed to allow inheriting display: inline-block from .postcard-container for consistent spacing */
+  line-height: 0;
+}
+.prose-styles .postcard-delete-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  z-index: 10;
+  transform: scale(0.8);
+}
+.prose-styles[contenteditable=true] .postcard-container:not(.carousel-container):hover .postcard-delete-button,
+.prose-styles[contenteditable=true] .carousel-slide-wrapper:hover .postcard-delete-button {
+  opacity: 1;
+  transform: scale(1);
+}
+.prose-styles .postcard-delete-button:hover {
+  background-color: rgb(var(--color-budi-pink));
+  transform: scale(1.1);
+}
+/* Carousel specific styles */
+.prose-styles .carousel-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden; /* Prevent slight vertical scrolling in edit mode */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.prose-styles[contenteditable=true] .carousel-scroll-container {
+  overflow-x: auto;
+}
+.prose-styles .carousel-slide-wrapper {
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+.prose-styles .carousel-slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+.prose-styles .carousel-pagination {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.375rem; /* 6px */
+  z-index: 5;
+}
+.prose-styles .carousel-dot {
+  width: 0.5rem; /* 8px */
+  height: 0.5rem; /* 8px */
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+.prose-styles .carousel-dot.active {
+  background-color: white;
+  width: 1.25rem; /* 20px */
+}
+
+/* Utility to hide scrollbars */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, and Opera */
+}
+
+/* Global link styles for budi-link class (used in recommendations, notes, etc.) */
+.budi-link {
+  color: rgb(var(--color-budi-lime));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.budi-link:hover {
+  color: rgb(var(--color-budi-lime-dark));
+}
