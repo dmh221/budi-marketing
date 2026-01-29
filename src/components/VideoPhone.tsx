@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 
 interface VideoPhoneProps {
   videoSrc: string;
@@ -7,6 +8,7 @@ interface VideoPhoneProps {
 
 export default function VideoPhone({ videoSrc, alt = "App demo" }: VideoPhoneProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const video = videoRef.current;
@@ -36,7 +38,17 @@ export default function VideoPhone({ videoSrc, alt = "App demo" }: VideoPhonePro
   }, []);
 
   return (
-    <div className="relative w-full max-w-sm mx-auto">
+    <motion.div
+      className="relative w-full max-w-sm mx-auto"
+      initial={{ filter: 'drop-shadow(0 0px 0px rgba(175, 191, 65, 0))' }}
+      whileHover={shouldReduceMotion ? {} : {
+        scale: 1.02,
+        y: -8,
+        filter: 'drop-shadow(0 20px 40px rgba(175, 191, 65, 0.15))',
+        transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }
+      }}
+      style={{ transform: 'translateZ(0)' }}
+    >
       {/* iPhone 17 Frame - Using Exact Figma Asset */}
       <div className="relative aspect-[393/852]">
         {/* Video Content - positioned to fit within the screen area */}
@@ -62,6 +74,6 @@ export default function VideoPhone({ videoSrc, alt = "App demo" }: VideoPhonePro
           style={{ zIndex: 10 }}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
