@@ -39,7 +39,7 @@ export default function VideoPhone({ videoSrc, alt = "App demo" }: VideoPhonePro
 
   return (
     <motion.div
-      className="relative w-full max-w-sm mx-auto"
+      className="relative w-full max-w-[280px] xs:max-w-[320px] sm:max-w-sm mx-auto"
       initial={{ filter: 'drop-shadow(0 0px 0px rgba(175, 191, 65, 0))' }}
       whileHover={shouldReduceMotion ? {} : {
         scale: 1.02,

@@ -72,11 +72,11 @@ export default function FeatureSection({
   return (
     <section
       ref={sectionRef}
-      className={`relative max-w-7xl mx-auto px-6 md:px-8 lg:px-12 py-16 md:py-24 ${className}`}
+      className={`relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-14 md:py-20 lg:py-24 ${className}`}
     >
       <div
         className={`
-          flex flex-col gap-12 items-center
+          flex flex-col gap-8 sm:gap-10 md:gap-12 items-center
           lg:flex-row lg:gap-20
           ${isTextLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'}
         `}
@@ -90,10 +90,10 @@ export default function FeatureSection({
           whileInView="visible"
           viewport={{ once: true, margin: "-100px", amount: 0.3 }}
         >
-          <h2 className="text-2xl md:text-3xl font-medium text-black uppercase tracking-tight leading-tight">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-medium text-black uppercase tracking-tight leading-tight">
             {heading}
           </h2>
-          <p className="text-base md:text-lg text-secondary leading-relaxed whitespace-pre-line">
+          <p className="text-sm md:text-base lg:text-lg text-secondary leading-relaxed whitespace-pre-line">
             {body}
           </p>
         </motion.div>

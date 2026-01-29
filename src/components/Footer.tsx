@@ -10,10 +10,10 @@ export default function Footer() {
   return (
     <>
       <footer className="bg-white/70 backdrop-blur-xl border-t border-gray-200/50 py-12 relative h-8">
-          <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           {/* Footer Content */}
-          <div className="flex justify-between items-start mb-8">
-            <div className="flex gap-12">
+          <div className="flex flex-col sm:flex-row justify-between items-start mb-8 gap-8 sm:gap-0">
+            <div className="flex flex-col sm:flex-row gap-8 sm:gap-12">
               {/* Company */}
               <div>
                 <nav className="flex flex-col gap-3 text-sm">
@@ -58,7 +58,7 @@ export default function Footer() {
               <img
                 src="/assets/logo_budi-lime_icon_transparent.svg"
                 alt="Budi logo"
-                className="h-40"
+                className="h-24 sm:h-32 md:h-40"
               />
             </div>
           </div>

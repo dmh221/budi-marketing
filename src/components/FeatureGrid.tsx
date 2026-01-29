@@ -61,17 +61,17 @@ export default function FeatureGrid() {
       }}
     >
       <div className="relative">
-        <div className="flex gap-4 animate-infinite-scroll">
+        <div className="flex gap-3 sm:gap-4 animate-infinite-scroll">
           {/* First set of features */}
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <div
                 key={`first-${index}`}
-                className="flex-shrink-0 w-[280px] p-6 bg-white/60 backdrop-blur-xl rounded-xl hover:bg-white/80 transition-all duration-300 group border border-black/5 shadow-sm"
+                className="flex-shrink-0 w-full xs:w-[260px] sm:w-[280px] p-4 sm:p-5 md:p-6 bg-white/60 backdrop-blur-xl rounded-xl hover:bg-white/80 transition-all duration-300 group border border-black/5 shadow-sm"
               >
                 <Icon className="w-10 h-10 text-budi-lime mb-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                <h3 className="text-lg font-semibold text-black mb-2">
+                <h3 className="text-base md:text-lg font-semibold text-black mb-2">
                   {feature.title}
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
@@ -86,10 +86,10 @@ export default function FeatureGrid() {
             return (
               <div
                 key={`second-${index}`}
-                className="flex-shrink-0 w-[280px] p-6 bg-white/60 backdrop-blur-xl rounded-xl hover:bg-white/80 transition-all duration-300 group border border-black/5 shadow-sm"
+                className="flex-shrink-0 w-full xs:w-[260px] sm:w-[280px] p-4 sm:p-5 md:p-6 bg-white/60 backdrop-blur-xl rounded-xl hover:bg-white/80 transition-all duration-300 group border border-black/5 shadow-sm"
               >
                 <Icon className="w-10 h-10 text-budi-lime mb-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                <h3 className="text-lg font-semibold text-black mb-2">
+                <h3 className="text-base md:text-lg font-semibold text-black mb-2">
                   {feature.title}
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
