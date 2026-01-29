@@ -1,44 +1,44 @@
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white border-t border-gray-200 py-12 px-6">
+    <footer className="bg-white/70 backdrop-blur-xl border-t border-gray-200/50 py-12 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Company */}
           <div>
-            <h3 className="text-sm font-medium text-black mb-4">Company</h3>
             <nav className="flex flex-col gap-3 text-sm">
-              <a href="/privacy" className="text-secondary hover:text-black transition-colors">
+              <Link to="/privacy" className="text-secondary hover:text-black transition-colors">
                 Privacy Policy
-              </a>
-              <a href="/terms" className="text-secondary hover:text-black transition-colors">
+              </Link>
+              <Link to="/terms" className="text-secondary hover:text-black transition-colors">
                 Terms of Service
-              </a>
-              <a href="/about" className="text-secondary hover:text-black transition-colors">
+              </Link>
+              <Link to="/about" className="text-secondary hover:text-black transition-colors">
                 About
-              </a>
+              </Link>
             </nav>
           </div>
 
           {/* Connect */}
           <div>
-            <h3 className="text-sm font-medium text-black mb-4">Connect</h3>
             <nav className="flex flex-col gap-3 text-sm">
               <a
-                href="mailto:hello@budi.app"
+                href="mailto:support@hellobudi.app"
                 className="text-secondary hover:text-black transition-colors"
               >
                 Email
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.instagram.com/hellobudi.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-secondary hover:text-black transition-colors"
               >
-                LinkedIn
+                Instagram
               </a>
             </nav>
           </div>
