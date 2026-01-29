@@ -72,7 +72,7 @@ export default function FeatureSection({
   return (
     <section
       ref={sectionRef}
-      className={`relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-14 md:py-20 lg:py-24 ${className}`}
+      className={`relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-14 md:py-20 lg:py-24 ${className}`}
     >
       <div
         className={`

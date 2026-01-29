@@ -38,7 +38,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-32 sm:pt-36 md:pt-44 lg:pt-48 pb-20 sm:pb-24 md:pb-32 lg:pb-36 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden"
+      className="relative pt-40 sm:pt-36 md:pt-44 lg:pt-48 pb-20 sm:pb-24 md:pb-32 lg:pb-36 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden"
       style={{
         background: 'linear-gradient(45deg, #FAF8F1, #F3F2E0, #E4EBBB, #FAF8F1)',
         backgroundSize: '200% 200%',
@@ -65,7 +65,7 @@ export default function Hero() {
       >
         {/* Main Headline with refined animation */}
         <motion.h1
-          className="text-3xl md:text-5xl lg:text-6xl font-semibold text-black mb-5 mx-auto cursor-pointer"
+          className="text-3xl md:text-5xl lg:text-6xl font-semibold text-black mb-5 mx-auto md:cursor-pointer"
           style={{
             maxWidth: '820px',
             letterSpacing: '-0.02em',
@@ -77,7 +77,12 @@ export default function Hero() {
             duration: shouldReduceMotion ? 0 : 0.58,
             ease: "easeOut"
           }}
-          onMouseEnter={handleHover}
+          onMouseEnter={() => {
+            // Only trigger on desktop (width >= 768px)
+            if (window.innerWidth >= 768) {
+              handleHover();
+            }
+          }}
         >
           {shouldReduceMotion ? (
             "Cooking has become cognitively expensive."
