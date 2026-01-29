@@ -48,7 +48,7 @@ const features: Feature[] = [
 ];
 
 export default function FeatureGrid() {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref } = useScrollAnimation();
 
   return (
     <section
