@@ -15,7 +15,7 @@ export default function LegalPageLayout({ title, lastUpdated, children }: LegalP
       {lastUpdated && (
         <p className="text-xs text-secondary mb-12">Last updated: {lastUpdated}</p>
       )}
-      <div className="space-y-12">
+      <div className="space-y-8">
         {children}
       </div>
     </div>
@@ -33,7 +33,7 @@ export function LegalSection({ title, children }: SectionProps) {
       <h2 className="text-base font-semibold text-black mb-4 uppercase">
         {title}
       </h2>
-      <div className="space-y-4 text-secondary leading-relaxed text-justify text-sm">
+      <div className="space-y-3 text-secondary leading-relaxed text-justify text-sm">
         {children}
       </div>
     </section>

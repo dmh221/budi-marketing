@@ -680,8 +680,8 @@ function RecipeDetailScreen({ recipeIndex }: RecipeDetailScreenProps) {
     <div className="w-full h-full bg-background flex flex-col overflow-y-auto">
       {/* Back button */}
       <div className="absolute top-4 left-4 z-10">
-        <button className="w-8 h-8 flex items-center justify-center text-text-secondary">
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <button className="w-8 h-8 flex items-center justify-center text-text-secondary" aria-label="Go back">
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
@@ -689,8 +689,8 @@ function RecipeDetailScreen({ recipeIndex }: RecipeDetailScreenProps) {
 
       {/* Three dots menu */}
       <div className="absolute top-4 right-4 z-10">
-        <button className="w-8 h-8 flex items-center justify-center text-text-secondary">
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <button className="w-8 h-8 flex items-center justify-center text-text-secondary" aria-label="More options">
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="5" r="2" />
             <circle cx="12" cy="12" r="2" />
             <circle cx="12" cy="19" r="2" />

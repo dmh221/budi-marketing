@@ -23,6 +23,9 @@ export default function Footer() {
                   <Link to="/terms" onClick={handleLinkClick} className="text-secondary hover:text-black transition-colors">
                     Terms of Service
                   </Link>
+                  <Link to="/accessibility" onClick={handleLinkClick} className="text-secondary hover:text-black transition-colors">
+                    Accessibility
+                  </Link>
                   <Link to="/about" onClick={handleLinkClick} className="text-secondary hover:text-black transition-colors">
                     About
                   </Link>
@@ -54,7 +57,7 @@ export default function Footer() {
             <div>
               <img
                 src="/assets/logo_budi-lime_icon_transparent.svg"
-                alt="Budi"
+                alt="Budi logo"
                 className="h-40"
               />
             </div>

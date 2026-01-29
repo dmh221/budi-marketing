@@ -6,163 +6,181 @@ export default function Terms() {
       <h1 className="text-xl font-bold text-black mb-4 pt-24 uppercase">Terms of Service</h1>
       <p className="text-xs text-secondary mb-12">Last updated: {lastUpdated}</p>
 
-      <div className="space-y-12">
+      <div className="space-y-8">
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">1. Introduction & Acceptance of Terms</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">1. Introduction & Acceptance</h2>
           <div className="text-secondary leading-relaxed text-justify text-sm">
             <p>
-              Welcome to Budi ("the Service"), a free social cooking application. These Terms of Service ("Terms") govern your access to and use of the Budi mobile application. By downloading, accessing, or using the Service, you agree to be bound by these Terms. If you disagree with any part of the terms, you may not access the Service.
+              Welcome to Budi ("the Service"), a social cooking application. By using the Service, you agree to these Terms. If you disagree, do not use the Service.
             </p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">2. Description of Service</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">2. Description of Service</h2>
           <div className="space-y-4 text-secondary leading-relaxed text-justify text-sm">
-            <p>Budi is a social cooking application that allows users to:</p>
-            <ul className="list-disc list-inside space-y-1">
+            <p>Budi allows users to:</p>
+            <ul className="list-disc list-inside space-y-0.5">
               <li>Save and organize recipes</li>
               <li>Share recipes with friends</li>
-              <li>Track ingredients and create grocery lists</li>
-              <li>Generate recipe images and nutritional insights using AI</li>
+              <li>Track ingredients and grocery lists</li>
+              <li>Generate recipe images and nutrition insights using AI</li>
               <li>Connect with other users for cooking inspiration</li>
             </ul>
+            <p>Some features may be labeled experimental or beta and may change or be removed at any time.</p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">3. User Accounts</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">3. User Accounts</h2>
           <div className="text-secondary leading-relaxed text-justify text-sm">
             <p>
-              You must provide a valid phone number to create an account. You are responsible for safeguarding your account and all activities that occur under it. You must not share your account credentials with others and must notify us immediately of any unauthorized use.
+              You must provide a valid phone number. You are responsible for account security and all activity under your account.
             </p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">4. Acceptable Use Policy</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">4. Acceptable Use</h2>
           <div className="space-y-4 text-secondary leading-relaxed text-justify text-sm">
-            <p>You agree not to use the Service to:</p>
-            <ul className="list-disc list-inside space-y-1">
-              <li>Upload or share content that is illegal, harmful, threatening, abusive, defamatory, or otherwise objectionable.</li>
-              <li>Impersonate any person or entity or misrepresent your affiliation.</li>
-              <li>Upload content that infringes on the intellectual property rights of others.</li>
-              <li>Attempt to gain unauthorized access to the Service or other users' accounts.</li>
-              <li>Use the Service for any commercial purposes without our explicit permission.</li>
-              <li>Share false, misleading, or dangerous recipe information.</li>
-              <li>Spam, harass, or abuse other users.</li>
+            <p>You agree not to:</p>
+            <ul className="list-disc list-inside space-y-0.5">
+              <li>Post illegal, abusive, or harmful content</li>
+              <li>Impersonate others</li>
+              <li>Infringe intellectual property</li>
+              <li>Attempt unauthorized access</li>
+              <li>Use the Service for commercial promotion without written permission</li>
+              <li>Share dangerous or misleading recipe information</li>
+              <li>Harass or spam users</li>
             </ul>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">5. Content and Intellectual Property</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">5. Content & Intellectual Property</h2>
           <div className="space-y-4 text-secondary leading-relaxed text-justify text-sm">
             <p>
-              You retain ownership of the content you create and share through Budi ("User Content"). By sharing User Content on Budi, you grant us a non-exclusive, worldwide, royalty-free license to use, display, and distribute your content solely within the Service. You represent that you have all necessary rights to share any content you upload. We reserve the right to remove any content that violates these Terms.
+              You retain ownership of your content. You grant Budi a non-exclusive, worldwide, royalty-free license to use and display it within the Service.
             </p>
-            <p>Recipe data may be enhanced with AI-generated images and nutritional information provided by third-party services.</p>
+            <p>We may remove or restrict content at our sole discretion.</p>
+            <p>Recipe data may be enhanced with AI-generated images and nutritional information.</p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">6. Third-Party Services</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">6. Third-Party Services</h2>
           <div className="text-secondary leading-relaxed text-justify text-sm">
-            <p>The app uses third-party services, including Google's Gemini API for features like image generation and nutritional insights. These services have their own terms and privacy policies that may apply to your use of Budi.</p>
+            <p>Budi uses third-party services including AI providers. Their terms and policies may also apply.</p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">7. Privacy</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">7. Privacy</h2>
           <div className="text-secondary leading-relaxed text-justify text-sm">
             <p>
-              Your privacy is important to us. Please review our Privacy Policy, which also governs your use of the Service, to understand our practices. The Privacy Policy is accessible from the Settings page.
+              Your use is governed by our Privacy Policy.
             </p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">8. Disclaimers and Accuracy</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">8. Disclaimers & Safety</h2>
+          <div className="space-y-4 text-secondary leading-relaxed text-justify text-sm">
+            <p>The Service is provided "as is."</p>
+            <ul className="list-disc list-inside space-y-0.5">
+              <li>AI-generated images, upgrades, and nutrition insights may be incomplete or incorrect</li>
+              <li>Nothing in the Service constitutes medical or dietary advice</li>
+              <li>You are solely responsible for safe food preparation, cooking temperatures, storage, and allergy considerations</li>
+              <li>We do not guarantee recipe or nutrition accuracy</li>
+              <li>Service availability is not guaranteed</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">9. Limitation of Liability</h2>
           <div className="text-secondary leading-relaxed text-justify text-sm">
             <p>
-              The Service is provided "as is" without warranties of any kind. We do not guarantee the accuracy of recipe information, nutritional data, or AI-generated content. Nutritional information is provided for informational purposes only and should not replace professional dietary advice. We are not responsible for any health issues or allergic reactions that may result from recipes or information shared on the platform. The Service may be interrupted or unavailable from time to time.
+              We are not liable for indirect, incidental, consequential, or punitive damages arising from Service use.
             </p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">9. Limitation of Liability</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">10. Service Changes</h2>
+          <div className="text-secondary leading-relaxed text-justify text-sm">
+            <p>We may modify, suspend, or discontinue any part of the Service at any time without liability.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">11. Termination</h2>
+          <div className="text-secondary leading-relaxed text-justify text-sm">
+            <p>You may delete your account anytime. We may suspend accounts for violations.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">12. Indemnification</h2>
           <div className="text-secondary leading-relaxed text-justify text-sm">
             <p>
-              In no event shall the providers of Budi be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the Service.
+              You agree to indemnify and hold Budi harmless from claims arising from your use or violations.
             </p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">10. Termination</h2>
-          <div className="text-secondary leading-relaxed text-justify text-sm">
-            <p>You may delete your account at any time through the app settings. We may terminate or suspend your account immediately, without prior notice, for conduct that we believe violates these Terms or is harmful to other users or third parties. Upon termination, your right to use the Service will cease immediately.</p>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">11. Indemnification</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">13. Severability</h2>
           <div className="text-secondary leading-relaxed text-justify text-sm">
             <p>
-              You agree to indemnify, defend, and hold harmless Budi and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable legal fees, arising out of or in any way connected with your access to or use of the Service, your violation of these Terms, or your violation of any rights of another person or entity.
+              If a provision is invalid, remaining terms still apply.
             </p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">12. Severability</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">14. Age Requirement</h2>
           <div className="text-secondary leading-relaxed text-justify text-sm">
             <p>
-              If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that these Terms will otherwise remain in full force and effect.
+              The Service is not intended for users under 18.
             </p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">13. Age Requirements</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">15. Changes to Terms</h2>
           <div className="text-secondary leading-relaxed text-justify text-sm">
             <p>
-              The Service is not intended for children under 18 years of age. We do not knowingly collect personal information from children under 18.
+              We may update these Terms. Continued use constitutes acceptance.
             </p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">14. Changes to Terms</h2>
-          <div className="text-secondary leading-relaxed text-justify text-sm">
-            <p>
-              We may update these Terms from time to time. We will notify you of any material changes by posting the updated Terms in the app or by sending a notification through the app. Your continued use of Budi after changes are posted constitutes your acceptance of the updated Terms.
-            </p>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">15. Governing Law & Dispute Resolution</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">16. Governing Law & Disputes</h2>
           <div className="space-y-4 text-secondary leading-relaxed text-justify text-sm">
             <p>
-              These Terms shall be governed by and construed in accordance with the laws of the State of California, United States, without regard to its conflict of law provisions.
-            </p>
-            <p>
-              Any disputes arising out of or relating to these Terms or the Service shall be resolved through binding arbitration in accordance with the rules of the American Arbitration Association, except that either party may seek injunctive relief in a court of competent jurisdiction to protect intellectual property rights.
+              California law governs. Disputes are resolved via binding arbitration except for IP injunctive relief.
             </p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-black mb-4 uppercase">16. Contact Us</h2>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">17. Force Majeure</h2>
+          <div className="text-secondary leading-relaxed text-justify text-sm">
+            <p>We are not liable for failures caused by events beyond our reasonable control.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 className="text-base font-semibold text-black mb-2 uppercase">18. Contact</h2>
           <div className="text-secondary leading-relaxed text-justify text-sm">
             <p>
-              If you have any questions about these Terms of Service, please contact us at:{' '}
+              If you have any questions about these Terms of Service, please contact us at{' '}
               <a href="mailto:support@hellobudi.app" className="text-lime hover:underline">
                 support@hellobudi.app
               </a>{' '}
-              or via the "Contact Support" feature in the app settings.
+              or via the Contact Support feature in app settings.
             </p>
           </div>
         </section>

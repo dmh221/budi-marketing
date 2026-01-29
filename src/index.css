@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================================
+ * ACCESSIBILITY - KEYBOARD NAVIGATION
+ * ============================================================================
+ * Ensures visible focus indicators for keyboard users (WCAG 2.1 Level AA)
+ */
+
+/* Focus visible styles for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid rgb(var(--color-budi-lime));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove focus outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Enhanced focus for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgb(var(--color-budi-lime));
+  outline-offset: 2px;
+}
+
 :root {
   --color-budi-lime-real: 175 191 65; /* #AFBF41 - Original for monochrome hovers */
   --color-budi-lime: 175 191 65; /* #AFBF41 */

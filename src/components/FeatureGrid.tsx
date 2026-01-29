@@ -70,7 +70,7 @@ export default function FeatureGrid() {
                 key={`first-${index}`}
                 className="flex-shrink-0 w-[280px] p-6 bg-white/60 backdrop-blur-xl rounded-xl hover:bg-white/80 transition-all duration-300 group border border-black/5 shadow-sm"
               >
-                <Icon className="w-10 h-10 text-budi-lime mb-4 group-hover:scale-110 transition-transform" />
+                <Icon className="w-10 h-10 text-budi-lime mb-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
                 <h3 className="text-lg font-semibold text-black mb-2">
                   {feature.title}
                 </h3>
@@ -88,7 +88,7 @@ export default function FeatureGrid() {
                 key={`second-${index}`}
                 className="flex-shrink-0 w-[280px] p-6 bg-white/60 backdrop-blur-xl rounded-xl hover:bg-white/80 transition-all duration-300 group border border-black/5 shadow-sm"
               >
-                <Icon className="w-10 h-10 text-budi-lime mb-4 group-hover:scale-110 transition-transform" />
+                <Icon className="w-10 h-10 text-budi-lime mb-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
                 <h3 className="text-lg font-semibold text-black mb-2">
                   {feature.title}
                 </h3>

@@ -107,19 +107,8 @@ export default function About() {
           <p>
             Budi is more than just an app; it's a place to share, learn, and inspire. Thank you for being here.
           </p>
-          <p>
-            Follow us on Instagram at{' '}
-            <a href="https://www.instagram.com/hellobudi.app" target="_blank" rel="noopener noreferrer" className="text-lime hover:underline">
-              @hellobudi.app
-            </a>{' '}
-            for updates, tips, and community highlights.
-          </p>
         </div>
       </section>
-
-      <p className="text-center font-semibold text-black text-base mt-12">
-        Let's cook.
-      </p>
     </div>
   );
 }
