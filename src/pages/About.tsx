@@ -1,31 +1,31 @@
 export default function About() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold text-black mb-8 pt-8">About Budi</h1>
+    <div className="max-w-2xl mx-auto px-6 py-16">
+      <h1 className="text-xl font-bold text-black mb-8 pt-24 uppercase">About Budi</h1>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold text-lime mb-4">Our Mission</h2>
-        <div className="space-y-6 text-secondary leading-relaxed">
+        <h2 className="text-base font-semibold text-black mb-4 uppercase">Our Mission</h2>
+        <div className="space-y-6 text-secondary leading-relaxed text-justify text-sm">
           <p>
             Budi's mission is twofold: to build a new way to connect over food, and to make cooking healthy, nutritionally balanced meals at home easy and intuitive.
           </p>
 
           <div>
-            <h3 className="text-xl font-semibold text-black mb-3">Connect over food</h3>
+            <h3 className="text-base font-semibold text-black mb-3">Connect over food</h3>
             <p>
               Budi was created to let you share what you cook—what actually works for you—with your friends. It's a place to find inspiration for some of the most important choices you make every day—what you eat—from people you know and trust. While there's endless content available online, we rarely see what our closest friends are actually making at home.
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-black mb-3">Make Healthy Cooking Easy</h3>
+            <h3 className="text-base font-semibold text-black mb-3">Make Healthy Cooking Easy</h3>
             <p>
               Making healthier choices becomes easier when you can see what actually works in real kitchens. Ultra-processed foods are in roughly half of all packaged products—and they're linked to obesity, heart disease, diabetes, and depression. Cutting them out of your diet shouldn't be so hard. Budi's goal is to make it easy and intuitive to cook healthy, balanced meals at home. The app provides AI-driven nutritional insights and helps you learn nutritional fundamentals by applying them to what you actually eat—turning abstract nutrition advice into practical knowledge you can use.
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-black mb-3">How It Works</h3>
+            <h3 className="text-base font-semibold text-black mb-3">How It Works</h3>
             <p>
               Budi handles the organization: track and organize your recipes, import new ones with AI, manage your ingredients and grocery lists. Browse a beautiful feed of what your friends are cooking, recommend recipes to each other, and share notes. Build your own culinary database over time.
             </p>
@@ -34,8 +34,8 @@ export default function About() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold text-lime mb-4">Our Name</h2>
-        <div className="space-y-6 text-secondary leading-relaxed">
+        <h2 className="text-base font-semibold text-black mb-4 uppercase">Our Name</h2>
+        <div className="space-y-6 text-secondary leading-relaxed text-justify text-sm">
           <p>
             Budi is named after a baby orangutan rescued by the International Animal Rescue (IAR) in December 2014 after being illegally kept as a pet for the first year of his life. When he was rescued, he was extremely weak and malnourished, but thanks to the IAR, Budi recovered and has since been released into the wild. You can read his story{' '}
             <a href="https://www.internationalanimalrescue.org/projects/orangutan/budi" target="_blank" rel="noopener noreferrer" className="text-lime hover:underline">
@@ -52,8 +52,8 @@ export default function About() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold text-lime mb-4">How you can help</h2>
-        <div className="space-y-6 text-secondary leading-relaxed">
+        <h2 className="text-base font-semibold text-black mb-4 uppercase">How you can help</h2>
+        <div className="space-y-6 text-secondary leading-relaxed text-justify text-sm">
           <p>
             The most effective ways to protect orangutans are surprisingly direct:
           </p>
@@ -87,7 +87,7 @@ export default function About() {
           </p>
 
           <div>
-            <h3 className="text-xl font-semibold text-black mb-3">The Connection to Whole Foods</h3>
+            <h3 className="text-base font-semibold text-black mb-3">The Connection to Whole Foods</h3>
             <p className="mb-4">
               What does help is reducing demand for products that rely heavily on industrialized monocultures and ultra-processed ingredients. Beyond their environmental impact, ultra-processed foods are linked to serious health issues including obesity, heart disease, type-2 diabetes, and depression. By cooking more with whole, unprocessed ingredients, we address both problems at once.
             </p>
@@ -102,8 +102,8 @@ export default function About() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold text-lime mb-4">Join Our Community</h2>
-        <div className="space-y-4 text-secondary leading-relaxed">
+        <h2 className="text-base font-semibold text-black mb-4 uppercase">Join Our Community</h2>
+        <div className="space-y-4 text-secondary leading-relaxed text-justify text-sm">
           <p>
             Budi is more than just an app; it's a place to share, learn, and inspire. Thank you for being here.
           </p>
@@ -117,7 +117,7 @@ export default function About() {
         </div>
       </section>
 
-      <p className="text-center font-semibold text-black text-xl mt-12">
+      <p className="text-center font-semibold text-black text-base mt-12">
         Let's cook.
       </p>
     </div>
