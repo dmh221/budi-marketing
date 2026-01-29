@@ -714,7 +714,7 @@ function RecipeDetailScreen({ recipeIndex }: RecipeDetailScreenProps) {
       <div className="space-y-6 pb-6 px-4 pt-4">
         {/* Header section */}
         <div className="space-y-2 -mb-2">
-          <h1 className="text-base sm:text-lg font-bold text-text-secondary uppercase">{recipe.name}</h1>
+          <h2 className="text-base sm:text-lg font-bold text-text-secondary uppercase">{recipe.name}</h2>
         </div>
 
         {/* Divider */}

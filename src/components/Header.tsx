@@ -14,14 +14,16 @@ export default function Header() {
           </Link>
           <div className="flex items-center gap-6">
             <a
-              href="#login"
-              className="text-sm font-semibold text-[#AFBF41] hover:text-[#9DAD35] transition-colors"
+              href="https://cookwithbudi.app/"
+              className="text-sm font-semibold text-[#AFBF41] hover:text-[#9DAD35] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AFBF41] focus-visible:ring-offset-2 rounded-md px-2 py-1"
+              aria-label="Log in to Budi"
             >
               Log In
             </a>
             <a
-              href="#waitlist"
-              className="px-6 py-2.5 text-sm font-semibold text-white bg-[#AFBF41] rounded-full hover:bg-[#9DAD35] transition-colors"
+              href="https://cookwithbudi.app/"
+              className="px-6 py-2.5 text-sm font-semibold text-white bg-[#AFBF41] rounded-full hover:bg-[#9DAD35] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AFBF41] focus-visible:ring-offset-2"
+              aria-label="Sign up for Budi"
             >
               Sign Up
             </a>
