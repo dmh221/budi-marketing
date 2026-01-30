@@ -652,7 +652,7 @@ textarea:not([class*="rounded"]) {
 }
 
 .animate-infinite-scroll {
-  animation: infinite-scroll 5s linear infinite;
+  animation: infinite-scroll 7s linear infinite;
 }
 
 .animate-infinite-scroll:hover {

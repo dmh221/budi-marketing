@@ -61,14 +61,23 @@ export default function FeatureGrid() {
       }}
     >
       <div className="relative">
-        <div className="flex gap-3 sm:gap-4 animate-infinite-scroll">
+        {/*
+          Carousel math: 6 cards × 2 sets = 12 cards total
+          Mobile: 240px cards + 12px gaps = (240 × 12) + (12 × 11) = 3012px total, 1506px per set
+          Desktop: 280px cards + 16px gaps = (280 × 12) + (16 × 11) = 3536px total, 1768px per set
+          Animation translates -50% to loop seamlessly when first set exits left
+        */}
+        <div
+          className="flex gap-3 sm:gap-4 animate-infinite-scroll"
+          style={{ width: 'max-content' }}
+        >
           {/* First set of features */}
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <div
                 key={`first-${index}`}
-                className="flex-shrink-0 w-full xs:w-[260px] sm:w-[280px] p-4 sm:p-5 md:p-6 bg-white/60 backdrop-blur-xl rounded-xl hover:bg-white/80 transition-all duration-300 group border border-black/5 shadow-sm"
+                className="flex-shrink-0 w-[240px] sm:w-[280px] p-4 sm:p-5 md:p-6 bg-white/60 backdrop-blur-xl rounded-xl hover:bg-white/80 transition-all duration-300 group border border-black/5 shadow-sm"
               >
                 <Icon className="w-10 h-10 text-budi-lime mb-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
                 <h3 className="text-base md:text-lg font-semibold text-black mb-2">
@@ -86,7 +95,7 @@ export default function FeatureGrid() {
             return (
               <div
                 key={`second-${index}`}
-                className="flex-shrink-0 w-full xs:w-[260px] sm:w-[280px] p-4 sm:p-5 md:p-6 bg-white/60 backdrop-blur-xl rounded-xl hover:bg-white/80 transition-all duration-300 group border border-black/5 shadow-sm"
+                className="flex-shrink-0 w-[240px] sm:w-[280px] p-4 sm:p-5 md:p-6 bg-white/60 backdrop-blur-xl rounded-xl hover:bg-white/80 transition-all duration-300 group border border-black/5 shadow-sm"
               >
                 <Icon className="w-10 h-10 text-budi-lime mb-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
                 <h3 className="text-base md:text-lg font-semibold text-black mb-2">
